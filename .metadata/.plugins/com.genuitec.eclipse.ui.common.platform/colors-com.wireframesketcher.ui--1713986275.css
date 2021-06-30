@@ -1,0 +1,57 @@
+/* Editors, Palette, Rulers */
+.MPart.Editor .WireframeSketcher-Editor FigureCanvas.WireframeSketcher-Canvas,
+.MPart.Editor .WireframeSketcher-Editor RulerComposite FigureCanvas {
+color: black;
+background-color: white;
+}
+
+/* Palette */
+.MPart.Editor .WireframeSketcher-Palette FigureCanvas,
+.MPart.View .WireframeSketcher-Palette FigureCanvas {
+color: black;
+background-color: white;
+}
+
+/* Presentation Viewer */
+Shell.WireframeSketcher-PresentationViewer FigureCanvas {
+background-color: white;
+}
+
+Shell.WireframeSketcher-PresentationViewer > SashForm {
+background-color: #272c30;
+color: #b9c0c6;
+}
+
+.WireframeSketcher-PresentationViewer > SashForm > Composite,
+.WireframeSketcher-PresentationViewer > SashForm > Composite * {
+color: inherit;
+background-color: inherit;
+}
+
+/* Properties form */
+.WireframeSketcher-Form .WireframeSketcher-CustomCLabel,
+.WireframeSketcher-Form .WireframeSketcher-CScale {
+color: inherit;
+background-color: inherit;
+}
+
+.WireframeSketcher-Form ToolBar {
+color: inherit;
+background-color: grey;
+}
+
+/* Breadcrumbs */
+.WireframeSketcher-Editor > FlyoutPaletteComposite .WireframeSketcher-Breadcrumbs {
+color: black;
+background-color: white;
+}
+
+.MPart.Editor .WireframeSketcher-Editor > FlyoutPaletteComposite .WireframeSketcher-Breadcrumbs > * {
+color: inherit;
+background-color: inherit;
+swt-link-foreground-color: unset;
+}
+
+.MPart.Editor .WireframeSketcher-Editor > FlyoutPaletteComposite .WireframeSketcher-Breadcrumbs > Link.WireframeSketcher-Highlight {
+color: red !important;
+}
