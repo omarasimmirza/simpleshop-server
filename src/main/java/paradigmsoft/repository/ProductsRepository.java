@@ -26,30 +26,13 @@ public class ProductsRepository implements IProductsRepository{
 						rs.getString("name"),
 						rs.getString("department"),
 						rs.getString("description"),
-						rs.getFloat("price")));
-	}
-
-	@Override
-	public void createProduct(Products product) {
-		var sql = "insert into products (name, department, price, items, description)"
-				+ " values (?, ?, ?, ?, ?)";
-		actions.update(sql, product.getName(), product.getDepartment(), product.getPrice(), product.getItems(), product.getDescription());
-	}
-
-	@Override
-	public void updateProduct(Products product) {
-		
-	}
-
-	@Override
-	public void deleteProduct(int id) {
-		var sql = "delete from product where product_id = ?";
-		actions.update(sql, new Object[] {id});
+						rs.getFloat("price"),
+						rs.getString("disp_img")));
 	}
 
 	@Override
 	public Products getProduct(int id) {
-		var sql = "select from products where product_id = " + id;
+		var sql = "select * from products where product_id = " + id;
 		return actions.queryForObject(sql, (rs, rowNum) ->
 					new Products(
 						rs.getInt("product_id"),
@@ -57,7 +40,20 @@ public class ProductsRepository implements IProductsRepository{
 						rs.getString("name"),
 						rs.getString("department"),
 						rs.getString("description"),
-						rs.getFloat("price")));
+						rs.getFloat("price"),
+						rs.getString("disp_img")));
 	}
 	
+	public List<Products> search(String keyword) {
+		var sql = "select * from products where instr(name, \"" + keyword + "\")";
+		return actions.query(sql, (rs, rowNum) ->
+				new Products(
+						rs.getInt("product_id"),
+						rs.getInt("items"),
+						rs.getString("name"),
+						rs.getString("department"),
+						rs.getString("description"),
+						rs.getFloat("price"),
+						rs.getString("disp_img")));	
+	}
 }

@@ -12,15 +12,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "checkout")
 public class Checkout {
-	private int id, user_id, cart_id, card, cvv, zipcode;
+	private int id, user_id, card, cvv, zipcode;
 	private String street, city, state;
 	private Date date;
 	
 	public Checkout() {
 		
 	}
-	public Checkout(int id, int user_id, int cart_id, int card, int cvv, int zipcode, String street, String city, String state, Date date) {
-		this.cart_id = cart_id;
+	public Checkout(int id, int user_id, int card, int cvv, int zipcode, String street, String city, String state, Date date) {
 		this.id = id;
 		this.user_id = user_id;
 		this.card = card;
@@ -46,13 +45,6 @@ public class Checkout {
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
-	}
-	@Column(name = "cart_id")
-	public int getCart_id() {
-		return cart_id;
-	}
-	public void setCart_id(int cart_id) {
-		this.cart_id = cart_id;
 	}
 	@Column(name = "card_num")
 	public int getCard() {
@@ -106,7 +98,7 @@ public class Checkout {
 	
 	@Override
 	public String toString() {
-		return "Checkout:/nCheckout ID " + id + " User ID: " + user_id + " Cart ID: " + cart_id + " Street Address: " + street;
+		return "Checkout:/nCheckout ID " + id + " User ID: " + user_id + " Street Address: " + street;
 	}
 	
 	@Override

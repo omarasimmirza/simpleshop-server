@@ -12,19 +12,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "cart")
 public class Cart {
-	private int id, product_id, user_id;
+	private int id, product_id, user_id, quantity;
 	private float total;
 	private Date date;
 	
 	public Cart() {
 		
 	}
-	public Cart(int id, int product_id, int user_id, float total, Date date) {
+	public Cart(int id, int product_id, int user_id, float total, Date date, int quantity) {
 		this.id = id;
 		this.product_id = product_id;
 		this.user_id = user_id;
 		this.total = total;
 		this.date = date;
+		this.quantity = quantity;
 	}
 
 	@Id
@@ -64,9 +65,16 @@ public class Cart {
 		this.date = date;
 	}
 	
+	@Column(name = "quantity")
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	@Override
 	public String toString() {
-		return "Cart items:\nCart ID: " + id + " User ID: " + user_id + " Product ID: " + product_id + " Total: " + total + " Date: " + date;
+		return "Cart items:\nCart ID: " + id + " User ID: " + user_id + " Product ID: " + product_id + " Total: " + total + " Date: " + date + " Quantity: " + quantity;
 	}
 	
 	@Override

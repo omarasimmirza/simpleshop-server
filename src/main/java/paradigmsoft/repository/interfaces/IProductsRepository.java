@@ -9,8 +9,6 @@ import paradigmsoft.model.Products;
 @Repository
 public interface IProductsRepository {
 	List<Products> productList();
-	void createProduct(Products product);
-	void updateProduct(Products product);
-	void deleteProduct(int id);
 	Products getProduct(int id);
+	List<Products> search(String keyword);
 }

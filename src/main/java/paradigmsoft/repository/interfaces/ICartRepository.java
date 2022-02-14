@@ -10,7 +10,8 @@ import paradigmsoft.model.Cart;
 public interface ICartRepository {
 	float getTotal(int user_id);
 	List<Cart> getList(int user_id);
-	void createCart(Cart cart);
+	int createCart(Cart cart);
 	void deleteCart(int user_id);
-	void deleteProduct(int product_id);
+	void deleteProduct(int product_id, int user_id);
+	void deleteItem(int product_id, int user_id);
 }

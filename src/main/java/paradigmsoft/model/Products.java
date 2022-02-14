@@ -11,19 +11,20 @@ import javax.persistence.Table;
 @Table(name = "products")
 public class Products {
 	private int id, items;
-	private String name, department, description;
+	private String name, department, description, disp_img;
 	private float price;
 
 	public Products() {
 		
 	}
-	public Products(int id, int items, String name, String department, String description, float price) {
+	public Products(int id, int items, String name, String department, String description, float price, String disp_img) {
 		this.id = id;
 		this.department = department;
 		this.items = items;
 		this.name = name;
 		this.description = description;
 		this.price = price;
+		this.disp_img = disp_img;
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -68,7 +69,13 @@ public class Products {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
+	@Column(name = "disp_img")
+	public String getDisp_img() {
+		return disp_img;
+	}
+	public void setDisp_img(String disp_img) {
+		this.disp_img = disp_img;
+	}
 	@Override
 	public String toString() {
 		return "Products:\nProduct ID: " + id + " Product name: " + name + "Product amount: " + items + "Product price: " + price;
